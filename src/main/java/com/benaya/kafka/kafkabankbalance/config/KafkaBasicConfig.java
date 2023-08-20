@@ -25,5 +25,7 @@ public class KafkaBasicConfig {
         props.put(StreamsConfig.PROCESSING_GUARANTEE_CONFIG, StreamsConfig.EXACTLY_ONCE_V2);
         return new KafkaStreamsConfiguration(props);
     }
+//    @Bean
+//    public
 
 }

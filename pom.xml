@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.benaya.kafka</groupId>
     <artifactId>kafka-bank-balance</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>kafka-bank-balance</name>
     <description>kafka-bank-balance</description>
     <properties>

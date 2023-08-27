@@ -8,30 +8,33 @@ This application demonstrates real-time transaction processing using Kafka Strea
 The producer component generates 100 transactions per second, each containing client name, transaction amount, and transaction date. These transactions are sent to a Kafka topic named \`transactions-topic\`.
 
 ### Stream Processor
-The stream processor consumes the transactions from the \`transactions-topic\`, groups them by client name, and calculates the following for each client:
+The stream processor consumes the transactions from the \`bank-balance-input\`, groups them by client name, and calculates the following for each client:
 - Current balance
 - Number of transactions so far
 - Last transaction time
 
-The aggregated data is maintained in a \`KTable\`, allowing for real-time querying and further processing.
+The aggregated data is maintained in a \`KTable\`, as well as sent to the \`client-aggregation-output`\ topic, allowing for real-time querying and further processing.
 
 ## Architecture
-
+- **docker-compose**: Used to run Kafka and Zookeeper in Docker containers.
 - **Kafka**: Used for real-time data streaming.
 - **Spring Boot**: Framework for building the application.
 - **Kafka Streams**: Library used for stream processing.
 
 ## Prerequisites
-
+- docker
 - Java 8 or higher
 - Apache Kafka
 - Maven (for building the project)
 
 ## Setup
 
-1. **Start Kafka**: Ensure that your Kafka cluster is up and running.
+1. **Start Kafka**: Start Zookeeper and Kafka using docker-compose:
+   \```bash
+   docker-compose up
+   \```
 
-2. **Create Topic**: Create a topic named \`transactions-topic\` in your Kafka cluster.
+2. **Create Topic**: all topics are created within the app, so no need to do it manually. 
 
 3. **Build the Project**: Navigate to the project directory and run:
    \```bash
